@@ -1,26 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import "./App.css";
-import Character from "./Character";
+import AppRouter from "./components/Router/Approuter";
 
 function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const result = await axios("http://hp-api.herokuapp.com/api/characters");
-      setData(result.data);
-    }
-    fetchData();
-  });
-  return (
-    <div className="App">
-      <h1>Test</h1>
-      {data.map((character) => (
-        <Character details={character} />
-      ))}
-    </div>
-  );
+  return <AppRouter />;
 }
 
 export default App;
